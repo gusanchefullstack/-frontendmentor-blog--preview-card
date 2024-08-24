@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL](https://your-solution-url.com)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/blog-preview-card-solution-5x2TGMt74A)
 - Live Site URL: [Live site URL @Vercel](https://frontendmentor-blog-preview-card-virid.vercel.app/)
 
 ## My process
