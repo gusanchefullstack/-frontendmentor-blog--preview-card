@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+article {
+  background-color: var(--color-white);
+  text-align: center;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+
+article>img {
+  border-radius: 10px;
+}
+
+.content {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.category {
+  background-color: var(--color-yellow);
+  align: top left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray-950);
+  font-weight: 900;
+  line-height: 150%;
+  border-radius: 4px;
+}
+
+
+.date {
+  color: var(--color-gray-950);
+  font-weight: 500;
+  line-height: 150%;
+  text-align: left;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: var(--color-gray-950);
+  font-weight: 900;
+  line-height: 150%;
+  text-align: left;
+}
+
+h1:hover {
+  cursor: pointer;
+  color: var(--color-yellow);
+}
+
+.content p {
+  margin-top: 12px;
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--color-gray-500);
+  text-align: left;
+}
+
+.author {
+  margin-top: 12px;
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.author img {
+  width: 32px;
+  height: 32px;
+}
+
+.author p {
+  color: var(--color-gray-950);
+  font-weight: 900;
+  font-size: 14px;
+  margin-left: 12px;
+  line-height: 150%;
+}
+
+
+@media screen and (max-width: 376px) {
+  article {
+    margin-top: initial;
+    margin-top: 156px;
+    width: 327px;
+    height: 501px;
+  }
+
+  article>img {
+    width: 279px;
+    height: 200px;
+    box-shadow: none;
+  }
+
+  .category {
+    height: 26px;
+    width: 73px;
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  article {
+    width: 384px;
+    height: 522px;
+    margin-top: initial;
+    margin-top: 219px;
+  }
+
+  article>img {
+    width: 336px;
+    height: 200px;
+    box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .category {
+    height: 29px;
+    width: 82px;
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,17 @@
+:root {
+  --color-yellow: hsl(47, 88%, 63%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-500: hsl(0, 0%, 42%);
+  --color-gray-950: hsl(0, 0%, 7%);
+}
+
+body {
+  background-color: var(--color-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 16px;
+}

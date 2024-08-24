@@ -1,6 +1,6 @@
 # Frontend Mentor - Blog preview card solution
 
-This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -25,15 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](/MyScreenshots/Desktop-blog-preview-card.png)
 
 ### Links
 
@@ -47,36 +39,99 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Web Components
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+Use of HTML Template:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<template id="blog-preview-card-template">
+  <article>
+    <img src="/assets/images/illustration-article.svg" />
+    <div class="content">
+      <div class="category">Learning</div>
+      <h2 class="date">Published 21 Dec 2023</h2>
+      <h1>HTML & CSS foundations</h1>
+      <p>
+        These languages are the backbone of every website, defining structure,
+        content, and presentation.
+      </p>
+    </div>
+    <div class="author">
+      <img src="/assets/images/image-avatar.webp" alt="" />
+      <p>Greg Hooper</p>
+    </div>
+  </article>
+</template>
 ```
+
+Media queries for mobile and desktop:
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@media screen and (max-width: 376px) {
+  article {
+    margin-top: initial;
+    margin-top: 156px;
+    width: 327px;
+    height: 501px;
+  }
+
+  article > img {
+    width: 279px;
+    height: 200px;
+    box-shadow: none;
+  }
+
+  .category {
+    height: 26px;
+    width: 73px;
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
 }
 ```
+
+Creating the webcomponent as extension of HTMLElement:
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+export class BlogPreviewCard extends HTMLElement {
+  constructor() {
+    super();
+
+    this.root = this.attachShadow({ mode: "open" });
+
+    const template = document.getElementById("blog-preview-card-template");
+    const content = template.content.cloneNode(true);
+    this.root.appendChild(content);
+
+    const styles = document.createElement("style");
+    this.root.appendChild(styles);
+
+    async function loadCSS() {
+      const request = await fetch("/components/BlogPreviewCard.css");
+      const css = await request.text();
+      styles.textContent = css;
+    }
+
+    loadCSS();
+  }
 }
+
+customElements.define("blog-preview-card", BlogPreviewCard);
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
 
 ### Continued development
 
@@ -85,7 +140,8 @@ I will continue using web components for upocoming challenges.
 ### Useful resources
 
 - [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
-- [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 
+- [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [CSS Media Queries](https://css-tricks.com/a-complete-guide-to-css-media-queries/)
 
 ## Author
 
